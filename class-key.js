@@ -1,11 +1,21 @@
 /*:
-	@module-configuration:
+	@module-documentation:
 
+	@end-module-documentation
+
+	@module-configuration:
+		{
+			"fileName": "class-key.js",
+			"moduleName": "classKey",
+			"className": "Key",
+			"authorName": "Richeve S. Bebedor",
+			"isGlobal": true,
+			"isClass": true
+		}
 	@end-module-configuration
 
-	@module-documentation:
-	
-	@end-module-documentation
+	@export:
+	@end-export
 */
 Key = function Key( entity, key ){
 	/*:
@@ -38,6 +48,12 @@ Key.prototype.initialize = function initialize( entity, key ){
 
 		@method-documentation:
 		@end-method-documentation
+
+		@method-configuration:
+			{
+				"isPrivate": true
+			}
+		@end-method-configuration
 	*/
 	this.entity = entity;
 	this.key = key;	
@@ -47,6 +63,12 @@ Key.prototype.extractDescriptors = function extractDescriptors( ){
 	/*:
 		@method-documentation:
 		@end-method-documentation
+
+		@method-configuration:
+			{
+				"isPrivate": true
+			}
+		@end-method-configuration
 	*/
 	this.descriptors = Object.getOwnPropertyDescriptor( this.entity, this.key );
 };
