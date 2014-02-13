@@ -31,7 +31,7 @@ Key = function Key( entity, key ){
 	*/
 	if( this instanceof Key ){
 		this.initialize( entity, key );
-		this.extractDescriptors( );
+		this.construct( );
 	}else{
 		return new Key( entity, key );
 	}
@@ -59,6 +59,10 @@ Key.prototype.initialize = function initialize( entity, key ){
 	this.key = key;	
 };
 
+Key.prototype.construct = function construct( ){
+	this.extractDescriptors( );
+};
+
 Key.prototype.extractDescriptors = function extractDescriptors( ){
 	/*:
 		@method-documentation:
@@ -72,6 +76,11 @@ Key.prototype.extractDescriptors = function extractDescriptors( ){
 	*/
 	this.descriptors = Object.getOwnPropertyDescriptor( this.entity, this.key );
 };
+
+Key.prototype.getDescriptors = function getDescriptors( ){
+	this.extractDescriptors( );
+	return this.descriptors;
+}
 
 Key.prototype.getValue = function getValue( ){
 	/*:
