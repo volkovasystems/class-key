@@ -1,4 +1,10 @@
 /*:
+	@include:
+		{
+			"class-descriptors": "Descriptors"
+		}
+	@end-include
+
 	@module-documentation:
 
 	@end-module-documentation
@@ -142,4 +148,9 @@ Key.prototype.toString = function toString( ){
 		@end-method-documentation
 	*/
 	return this.key;
+};
+
+Key.prototype.getMappedDescriptors = function getMappedDescriptors( ){
+	this.mappedDescriptors = Descriptors( this.entity, this.key );
+	return this.mappedDescriptors;
 };
